@@ -21,6 +21,10 @@ typedef struct {
     Piece piece[size][size];
 }Chess;
 
+typedef struct {
+    int fromrow , fromcol , torow , tocol;
+}Move;
+
 
 void init(Chess *chess){
     
@@ -123,11 +127,24 @@ void printBoard(Chess *chess){
     printf(" ------------------------\n");
     printf(" a  b  c  d  e  f  g  h\n");
 }
+
+void ParseMove(Move *move , char *str ){
+    move->fromcol = tolower(str[0]) - 'a';
+    move->fromrow = 8 - (str[1] - '0');
+    move->tocol = tolower(str[2]) - 'a';
+    move->torow = 8 - (str[3] - '0');
+}
  
 
 int main(){
     Chess chess;
     init(&chess);
     printBoard(&chess);
+    Move move;
+    char str[5];
+    printf("Enter move (like e2e4): ");
+    scanf("%s",str);
+    ParseMove(&move , str);
+    printf("From: %d %d To %d %d ",move.fromrow,move.fromcol , move.torow , move.tocol);
     return 0;
 }

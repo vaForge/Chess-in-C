@@ -57,59 +57,62 @@ void init(Chess *chess){
 }
 
 void printBoard(Chess *chess){
+    printf("  a  b  c  d  e  f  g  h\n");
+    printf("  -----------------------\n");
     for(int i=0;i<size;i++){
+        printf("%d| ",size-i);
         for(int j=0;j<size;j++){
             if(chess->piece[i][j].type == noplace){
-                printf("  ");
+                printf("_  ");
             }
             else{
                 switch(chess->piece[i][j].type){
                     case pawn:
                         if(chess->piece[i][j].color == white){
-                            printf("p ");
+                            printf("p  ");
                         }
                         else{
-                            printf("P ");
+                            printf("P  ");
                         }
                         break;
                     case knight:
                         if(chess->piece[i][j].color == white){
-                            printf("N ");
+                            printf("N  ");
                         }
                         else{
-                            printf("n ");
+                            printf("n  ");
                         }
                         break;
                     case bishop:
                         if(chess->piece[i][j].color == white){
-                            printf("B ");
+                            printf("B  ");
                         }
                         else{
-                            printf("b ");
+                            printf("b  ");
                         }
                         break;
                     case rook:
                         if(chess->piece[i][j].color == white){
-                            printf("R ");
+                            printf("R  ");
                         }
                         else{
-                            printf("r ");
+                            printf("r  ");
                         }
                         break;
                     case queen:
                         if(chess->piece[i][j].color == white){
-                            printf("Q ");
+                            printf("Q  ");
                         }
                         else{
-                            printf("q ");
+                            printf("q  ");
                         }
                         break;
                     case king:
                         if(chess->piece[i][j].color == white){
-                            printf("K ");
+                            printf("K  ");
                         }
                         else{
-                            printf("k ");
+                            printf("k  ");
                         }
                         break;
                 }
@@ -117,6 +120,8 @@ void printBoard(Chess *chess){
         }
         printf("\n");
     }
+    printf(" ------------------------\n");
+    printf(" a  b  c  d  e  f  g  h\n");
 }
  
 
